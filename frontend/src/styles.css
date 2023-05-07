@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    /* background-image: url('assets/images/bg-01.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+
+.title-registrar {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center!important;
+}
+
+.contenedor-btn {
+    text-align: center;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.span-registro {
+    color: #c9c8c8;
+}
+
+.form-error {
+    font-size: .8rem;
+    color: #f44336;
+}
+
+.error {
+    font-size: 1rem;
+    color: #f44336;
+}
+
+.input-file {
+    font-size: 1rem;
+}
+
+.campo-file {
+    width: 100%;
+    padding: 10px;
+}
+
+.contenedor-file {
+    background-color: #4a4a4a;
+    padding: .5rem;
+}
+
+#fichero{
+    display: none;
+}
+  
+.circle{
+    width: 100%;
+    cursor: pointer;
+    padding: .7rem;
+}
+
+img {
+    height: 300px;
+}
+
+.img-perfil {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+.contenedor-archivo {
+    display: flex;
+    align-items: center;
+    background-color: rgb(112, 108, 108);
+    width: 200px;
+}
+
+.text-usuario {
+    font-size: 1rem;
+}
+
+.text-err {
+    color: #cf8c87;
+    font-size: .8rem;
+}

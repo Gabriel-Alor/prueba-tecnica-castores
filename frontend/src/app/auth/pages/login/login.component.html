@@ -1,0 +1,42 @@
+<form [formGroup]="formularioLogin" (ngSubmit)="login()">
+    <div class="flex flex-column mt-8">
+        <span class="title-registrar mb-4">Iniciar Sesión</span>
+    
+        <mat-form-field>
+            <mat-label>Usuario</mat-label>
+            <input matInput type="text" formControlName="nombreusuario" placeholder="ingrese su usuario...">
+            <span class="form-error" *ngIf="validarCampo('nombreusuario')">{{ validarErrores('nombreusuario') }}</span>
+        </mat-form-field>
+    
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" placeholder="ingrese su contraseña...">
+            <span class="form-error" *ngIf="validarCampo('password')">{{ validarErrores('password') }}</span>
+        </mat-form-field>
+    
+        <button mat-button mat-flat-button type="submit" color="primary">
+            Iniciar sesión
+        </button>
+    
+        <div class="flex justify-content-center mt-4">
+            <div class="mr-4">
+                <span>
+                    ¿No tienes cuenta?
+                </span>
+        
+                <a routerLink="/auth/registro" class="span-registro">
+                    Crear una aquí
+                </a>
+            </div>
+            <a routerLink="/noticias/listado" class="span-registro">
+                Acceder sin loguearse
+            </a>
+        </div>
+    
+    </div>
+</form>
+
+
+<app-loading-spiner *ngIf="isLoading"></app-loading-spiner>
+
+

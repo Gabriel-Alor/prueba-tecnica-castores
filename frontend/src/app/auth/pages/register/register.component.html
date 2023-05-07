@@ -1,0 +1,64 @@
+
+<form class="mt-4" [formGroup]="registroForm" (ngSubmit)="registrarUsuario()">
+    <div class="grid justify-content-center">
+        <span class="title-registrar mb-4">Registrar Usuario</span>
+        <mat-form-field class="col-12">
+            <mat-label>Usuario</mat-label>
+            <input formControlName="nombreusuario" matInput type="text" placeholder="ingrese su usuario...">
+            <span class="form-error" *ngIf="validarCampo('nombreusuario')">{{ validarErrores('nombreusuario') }}</span>
+        </mat-form-field>
+    
+        <mat-form-field class="col-12">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="nombre" matInput type="text" placeholder="ingrese su nombre...">
+            <span class="form-error" *ngIf="validarCampo('nombre')">{{ validarErrores('nombre') }}</span>
+        </mat-form-field>
+    
+        <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Apellido paterno</mat-label>
+            <input formControlName="apepaterno" matInput type="text" placeholder="ingrese su apellido paterno...">
+            <span class="form-error" *ngIf="validarCampo('apepaterno')">{{ validarErrores('apepaterno') }}</span>
+        </mat-form-field>
+    
+        <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Apellido materno</mat-label>
+            <input formControlName="apematerno" matInput type="text" placeholder="ingrese su apellido materno...">
+            <span class="form-error" *ngIf="validarCampo('apematerno')">{{ validarErrores('apematerno') }}</span>
+        </mat-form-field>
+    
+        <mat-form-field class="col-12">
+            <mat-label>Dirección</mat-label>
+            <input formControlName="direccion" matInput type="text" placeholder="ingrese su dirección...">
+            <span class="form-error" *ngIf="validarCampo('direccion')">{{ validarErrores('direccion') }}</span>
+        </mat-form-field>
+    
+        <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput type="password" placeholder="ingrese su contraseña...">
+            <span class="form-error" *ngIf="validarCampo('password')">{{ validarErrores('password') }}</span>
+        </mat-form-field>
+    
+        <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Confirmar password</mat-label>
+            <input formControlName="password2" matInput type="password" placeholder="confirme su contraseña...">
+            <span class="form-error" *ngIf="validarCampo('password2')">{{ validarErrores('password2') }}</span>
+        </mat-form-field>
+    
+        <button class="col-12" mat-button mat-flat-button color="primary" type="submit">
+            <mat-icon>save</mat-icon>
+            Registrar
+        </button>
+    
+        <div class="mt-4">
+            <span class="">
+                ¿Ya tienes cuenta?
+            </span>
+    
+            <a routerLink="/auth/login" class="span-registro">
+                Iniciar Sesión
+            </a>
+        </div>
+    </div>
+</form>
+
+<app-loading-spiner *ngIf="isLoading"></app-loading-spiner>

@@ -18,13 +18,15 @@
 ## Instrucciones para ejecutar el front end
 - Ejecutar el comando **ng serve -o** para correr el proyecto
 - En caso de no tener la carpeta de node_modules en el proyecto ejecutar el comando **npm install**
+- Ejcutar el siguiente comando en el proyecto de Angula **npm install --save @angular/material @angular/cdk** en caso de no ejecutar el comando puede haber problemas con la ejecución del proyecto
 
 ## Ejemplo de como consumir la API
-...
+´´´
 public obtenerPersonal(): Observable<Persona[]> {
     return this.http.get<Persona[]>(`${ this.baseUrl }/personal`);
 }
-...
+´´´
+
  
 
 

@@ -1,0 +1,50 @@
+
+<h1>Editar Usuario</h1>
+<hr>
+
+<form [formGroup]="editarForm" class="flex justify-content-center">
+    <div class="col-8 grid justify-content-center">
+        <mat-form-field class="col-12 sm:col-12">
+        <mat-label>Usuario</mat-label>
+        <input formControlName="nombreusuario" matInput type="text" placeholder="username...">
+        </mat-form-field>
+
+        <mat-form-field class="col-12 sm:col-12">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="nombre" matInput type="text" placeholder="nombre...">
+        </mat-form-field>
+
+        <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Apellido paterno</mat-label>
+            <input formControlName="apepaterno" matInput type="text" placeholder="apellido paterno...">
+        </mat-form-field>
+
+        <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Apellido materno</mat-label>
+            <input formControlName="apematerno" matInput type="text" placeholder="apellido materno...">
+        </mat-form-field>
+        
+        <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Dirección</mat-label>
+            <input formControlName="direccion" matInput type="text" placeholder="direccion...">
+        </mat-form-field>
+
+        <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Fecha</mat-label>
+            <input formControlName="fechadeingreso" matInput type="date" placeholder="fecha de ingreso...">
+        </mat-form-field>
+
+        <mat-form-field class="col-12 sm:col-12">
+            <mat-label>Seleccione el tipo de personal</mat-label>
+            <mat-select formControlName="idtipopersonal">
+                <mat-option value="1">Interno</mat-option>
+                <mat-option value="0">Externo</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button class="col-8" mat-button mat-flat-button (click)="editarUsuario()" color="warn">Guardar cambios</button>
+    </div>
+
+</form>
+
+<app-loading-spiner *ngIf="isLoading"></app-loading-spiner>

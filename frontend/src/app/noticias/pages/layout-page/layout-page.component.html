@@ -1,0 +1,62 @@
+
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }">
+        <mat-toolbar>
+            <span>Menú</span>
+            <span class="spacer"></span>
+
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <mat-list-item 
+                *ngFor="let item of sidebarItems"
+                [routerLink]="item.url"
+                (click)="sidenav.toggle()"
+            >
+                <mat-icon>{{ item.icon }}</mat-icon>
+                {{ item.label }}
+            </mat-list-item>
+
+            <mat-list-item 
+                routerLink="./add-nota"
+                (click)="sidenav.toggle()"
+                *ngIf="usuario && usuario.user.idtipopersonal == '1'"
+            >
+                <mat-icon>add</mat-icon>
+                Agregar Nota
+            </mat-list-item>
+
+            <mat-list-item 
+                routerLink="./usuarios"
+                (click)="sidenav.toggle()"
+                *ngIf="usuario"
+            >
+                <mat-icon>group</mat-icon>
+                Usuarios
+            </mat-list-item>
+        
+        </mat-nav-list>
+    </mat-sidenav>
+
+
+    <mat-toolbar>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span class="spacer"></span>
+        <img class="img-perfil" src="assets/images/no-image.png" alt="">
+        <span class="mr-4">{{ usuario ? usuario.user.nombreusuario : 'anónimo' }}</span>
+
+        <button mat-button (click)="logout()">
+            Logout
+        </button>
+    </mat-toolbar>
+
+    <div class="container p-2">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>

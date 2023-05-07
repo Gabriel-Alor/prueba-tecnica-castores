@@ -1,0 +1,11 @@
+
+<h1>Listado de Noticias</h1>
+<mat-divider></mat-divider>
+
+<div class="grid mb-8 p-4 justify-content-center">
+    <div *ngFor="let noticia of noticias?.notas" class="col-12 sm:col-5 md:col-4 xl:col-3">
+        <app-noticia-card [noticia]="noticia"></app-noticia-card>
+    </div>
+</div>
+
+<app-loading-spiner *ngIf="!noticias?.notas"></app-loading-spiner>

@@ -1,0 +1,55 @@
+
+<div class="p-4">
+    <h1>Titulo noticia</h1>
+    <hr>
+</div>
+
+<div class="flex justify-content-center" *ngIf="noticia">
+    <mat-card class="col-12 sm:col-7">
+        <mat-card-header class="mb-2">
+            <mat-card-title>{{ noticia.titulo }}</mat-card-title>
+            <mat-card-subtitle>Publicada por: {{ noticia.usuario.nombreusuario }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img style="height: auto;" [src]=" noticia | noticiaImagen " [alt]=" noticia.titulo " mat-card-image>
+
+        <mat-card-content class="mt-2">
+            <strong>Fecha de publicación: {{ noticia.fechahorapublicacion }}</strong>
+            <hr>
+            <p class="text-usuario">{{ noticia.descripcion }}</p>
+
+            <form [formGroup]="comentarioForm">
+                <mat-form-field class="col-12">
+                    <mat-label>Agregar comentario</mat-label>
+                    <textarea formControlName="comentario" matInput type="text" placeholder="ingrese su apellido paterno..."></textarea>
+                </mat-form-field>
+            
+                <button class="col-12" mat-button mat-flat-button color="primary" type="submit" (click)="comentar()" [disabled]="idusuario === 0">
+                    <mat-icon>backup</mat-icon>
+                    Agregar comentario
+                </button>
+                <span class="form-error" *ngIf="idusuario === 0">Ustede necesita estar registrado para poder comentar y responder</span>
+            </form> 
+    
+            <mat-list>
+                <div>
+                    <div *ngFor="let comentario of comentarios?.comentarios">
+                        <p class="text-usuario">{{ comentario.comentario }} - <span class="text-err">{{ comentario.usuario['nombreusuario']}} - {{ comentario.usuario.idtipopersonal == '1' ? 'interno' : 'externo' }}</span></p>
+                        <mat-list-item *ngFor="let respuesta of comentario.respuestas">
+                            {{ respuesta.respuesta }} - <span class="text-err">{{ respuesta.usuario.nombreusuario }} - {{ respuesta.usuario.idtipopersonal == '1' ? 'interno' : 'externo' }}</span>
+                        </mat-list-item>
+                        <div class="grid align-items-center">
+                            <mat-form-field class="col-12 sm:col-10">
+                                <mat-label>Agregar respuesta</mat-label>
+                                <input matInput type="text" [formControl]="respuesta">
+                            </mat-form-field>
+                            <button class="col-12 sm:col-2" mat-button (click)="enviarRespuesta( comentario.idcomentario )" [disabled]="idusuario === 0">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<app-loading-spiner *ngIf="isLoading"></app-loading-spiner>

@@ -1,0 +1,36 @@
+
+<div class="flex justify-content-center">
+    <form class="col-8 grid mt-6" [formGroup]="formularioNoticia" (ngSubmit)="cargarNoticia()">
+        <mat-form-field class="col-12">
+            <mat-label>Título de la noticia</mat-label>
+            <input formControlName="titulo" matInput type="text" placeholder="ingrese el titulo de la noticia...">
+        </mat-form-field>
+
+        <div class="campo-file">
+            <div class="contenedor-file">
+                <input id="fichero" class="input-file" formControlName="imagen" type="file" (change)="handleImageInputChange($event)" placeholder="ingrese su nombre...">
+                <div class="contenedor-archivo">
+                    <mat-icon>upload</mat-icon>
+                    <label class="circle" for="fichero">Cargar imagen</label>
+                </div>
+            </div>
+        </div>
+    
+        <mat-form-field class="col-12">
+            <mat-label>Descripcción</mat-label>
+            <textarea formControlName="descripcion" matInput type="text" placeholder="ingrese su apellido paterno..."></textarea>
+            <span class="form-error"></span>
+        </mat-form-field>
+
+        <button class="col-12" mat-button mat-flat-button color="primary" type="submit" [disabled]="idusuario === 0">
+            <mat-icon>backup</mat-icon>
+            Subir noticia
+        </button>
+
+        <div class="error mt-3">
+            <span *ngIf="idusuario === 0">Ustede debe ser interno para poder publicar una noticia</span>
+        </div>
+    </form>
+</div>
+
+<app-loading-spiner *ngIf="isLoading"></app-loading-spiner>
