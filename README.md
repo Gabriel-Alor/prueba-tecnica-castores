@@ -1,7 +1,7 @@
 ## Herramientas usadas para el back end
-- XAMPP. xampp-windows-x64-7.4.8-0-VC15-installer Enlace de descarga. https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.4.8/xampp-windows-x64-7.4.8-0-VC15-installer.exe/download
-- Recomendado tener instalado composer versión 2.5.5
-- Postman
+- XAMPP. xampp-windows-x64-7.4.8-0-VC15-installer. [Clic para descargar](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.4.8/xampp-windows-x64-7.4.8-0-VC15-installer.exe/download "Clic para descargar")
+- Recomendado tener instalado composer versión 2.5.5. [Clic para descargar](https://getcomposer.org/Composer-Setup.exe "Clic para descargar")
+- Postman. ([Clic para decargar](https://dl.pstmn.io/download/latest/win64 "Clic para decargar"))
 - Tener ejecutando el xampp
 
 ## Instrucciones para ejecutar el back end
@@ -21,13 +21,13 @@
 - Ejcutar el siguiente comando en el proyecto de Angula **npm install --save @angular/material @angular/cdk** en caso de no ejecutar el comando puede haber problemas con la ejecución del proyecto
 
 ## Ejemplo de como consumir la API
-´´´
+Endpoint: http://localhost:8000/api/personal
+
+Código:
+```javascript
 public obtenerPersonal(): Observable<Persona[]> {
     return this.http.get<Persona[]>(`${ this.baseUrl }/personal`);
 }
-´´´
-
- 
-
+```
 
 
